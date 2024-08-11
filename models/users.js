@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+
 const userSchema = new mongoose.Schema({
   userName: {
     type: String,
@@ -21,14 +22,15 @@ const userSchema = new mongoose.Schema({
   updateDate: {
     type: Number,
   }
-});
-const userOption = {
+},
+{
   versionKey: false, // 禁用 Mongoose 自動添加的 __v 版本
   timestamps: {
     createdAt: 'createDate',
     updatedAt: 'updateDate'
   }
-}
+});
+
 const User = mongoose.model('users', userSchema);
 
 module.exports = User;
